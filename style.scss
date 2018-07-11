@@ -27,19 +27,39 @@ main {
   transform: translate(0, 100px) scale(.7);
   transition: transform .5s, opacity .7s;
   will-change: transform;
-  &:nth-child(1) {
-    background-color:  green;
-  }
-  &:nth-child(2) {
-    background-color: purple;
-  }
-  &:nth-child(3) {
-    background-color: darkblue;
-  }
   &.active-section {
     position: relative;
     opacity: 1;
     transform: translate(0,0) scale(1);
     z-index: 1;
   }
+}
+.green {
+  background-color: green;
+}
+.purple {
+  background-color: purple;
+}
+.blue {
+  background-color: darkblue;
+}
+.fully-dots {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translate(0, -50%);
+  width: 32px;
+  z-index: 2;
+}
+.fully-dot {
+  display: inline-block;
+  vertical-align: top;
+  width: 30px;
+  height: 30px;
+  margin: 2px 0;
+  border-radius: 15px;
+  outline: none;
+  text-indent: -9999px;
+  background-color: #fff;
+  cursor: pointer;
 }

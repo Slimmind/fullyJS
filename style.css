@@ -39,23 +39,46 @@ main {
   will-change: transform;
 }
 
-.fully-section:nth-child(1) {
-  background-color: green;
-}
-
-.fully-section:nth-child(2) {
-  background-color: purple;
-}
-
-.fully-section:nth-child(3) {
-  background-color: darkblue;
-}
-
 .fully-section.active-section {
   position: relative;
   opacity: 1;
   -webkit-transform: translate(0, 0) scale(1);
           transform: translate(0, 0) scale(1);
   z-index: 1;
+}
+
+.green {
+  background-color: green;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.blue {
+  background-color: darkblue;
+}
+
+.fully-dots {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 32px;
+  z-index: 2;
+}
+
+.fully-dot {
+  display: inline-block;
+  vertical-align: top;
+  width: 30px;
+  height: 30px;
+  margin: 2px 0;
+  border-radius: 15px;
+  outline: none;
+  text-indent: -9999px;
+  background-color: #fff;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
