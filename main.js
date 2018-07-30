@@ -2,7 +2,7 @@ const fullyContainer = document.querySelector('.fully-container');
 const fullySections = fullyContainer.querySelectorAll('.fully-section');
 const fullyDots = fullyContainer.querySelector('.fully-dots');
 let flag = true;
-let curSection = 0;
+let curSection = 1;
 
 [...fullySections].forEach((section, counter = 0) => {
   section.setAttribute('data-section', ++counter);
@@ -14,6 +14,7 @@ function changeSection(index) {
   if(index >= 1 && index <= fullySections.length) {
     fullyContainer.querySelector('.active-section').classList.remove('active-section');
     fullyContainer.querySelector(`[data-section="${index}"]`).classList.add('active-section');
+    setDot(index);
   }
 }
 
@@ -22,8 +23,8 @@ window.onload = () => {
   document.addEventListener('click', (e) => {
     console.log('click');
     if(event.target.classList.contains('fully-dot')) {
-      console.log(event.target.getAttribute('data-section-num'));
-      changeSection(event.target.getAttribute('data-section-num'));
+      curSection = event.target.getAttribute('data-section-num');
+      changeSection(curSection);
     }
   });
   document.addEventListener('wheel', (e) => {
@@ -40,7 +41,9 @@ window.onload = () => {
       }, 1400);
     }
   });
+  setDot(curSection);
 }
+
 function direction (delta) {
   if(delta < 0) {
     return 'forward'
@@ -48,9 +51,22 @@ function direction (delta) {
     return 'back'
   }
 }
+
 function activeSection() {
   return parseInt(document.querySelector('.active-section').getAttribute('data-section'));
 }
+
+function setDot(curSection) {
+  const fullyDot = document.querySelectorAll('.fully-dot');
+  [...fullyDot].forEach((item) => {
+    if(item.getAttribute('data-section-num') == curSection) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
+
 // Callbacks
 function one() {
   console.log('one');

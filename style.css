@@ -70,6 +70,7 @@ main {
 }
 
 .fully-dot {
+  position: relative;
   display: inline-block;
   vertical-align: top;
   width: 30px;
@@ -80,5 +81,16 @@ main {
   text-indent: -9999px;
   background-color: #fff;
   cursor: pointer;
+}
+
+.fully-dot.active:before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #cdcdcd;
 }
 /*# sourceMappingURL=style.css.map */
